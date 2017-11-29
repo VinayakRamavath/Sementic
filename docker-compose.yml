@@ -3,6 +3,7 @@ services:
   kafka :
     image : spotify/kafka
     container_name : kafka
+    network_mode : host
     ports :
       - "9092:9092"
       - "2181:2181"
@@ -11,6 +12,7 @@ services:
 
   eureka:
     build : ./discovery-service-eureka
+    network_mode : host
     container_name : eureka
     ports :
       - "8020:8020"
@@ -18,6 +20,7 @@ services:
   # db:
   #   image: mysql:latest
   #   container_name : mysql
+  #    network_mode : host
   #   restart: always
   #   ports :
   #     - "3306:3306"
@@ -27,11 +30,13 @@ services:
 
   ui : 
     build : ./UserUI
+    network_mode : host
     ports : 
       - "4200:4200"
 
   # auth : 
   #   build : ./OAuthService
+  #   network_mode : host
   #   ports :
   #     - "8087:8087"
   #   environment :
@@ -40,6 +45,7 @@ services:
   graph :
     image : neo4j
     container_name : neo4jgraph
+    network_mode : host
     ports : 
       - "7474:7474"
       - "7687:7687"
@@ -48,6 +54,7 @@ services:
       
   domainexpert : 
     build : ./domainexpert
+    network_mode : host
     ports : 
       - "8089:8089"
     depends_on :
@@ -56,6 +63,7 @@ services:
   
   googleapi :
     build : ./GoogleApi
+    network_mode : host
     ports :
       - "8081:8081"
     depends_on :
@@ -64,6 +72,7 @@ services:
   
   crawler : 
     build : ./Crawler
+    network_mode : host
     ports :
       - "8070:8070"
     depends_on : 
@@ -72,6 +81,7 @@ services:
   
   parser :
     build : ./Parser
+    network_mode : host
     ports :
       - "8060:8060"
     depends_on :
@@ -80,6 +90,7 @@ services:
   
   indexer :
     build : ./Semantic-Search-Index
+    network_mode : host
     ports :
       - "8085:8085"
     depends_on :
@@ -88,6 +99,7 @@ services:
   
   conceptgraph :
     build : ./neo4j-concept
+    network_mode : host
     ports :
       - "8095:8095"
     depends_on :
@@ -97,6 +109,7 @@ services:
   
   intentgraph :
     build : ./neo4j-intent
+    network_mode : host
     ports :
       - "8096:8096"
     depends_on :
@@ -106,6 +119,7 @@ services:
 
   spellchecker :
     build : ./spell-checker
+    network_mode : host
     ports :
       - "8051:8051"
     depends_on :
@@ -114,6 +128,7 @@ services:
  
   pos_ner :
     build : ./nlp
+    network_mode : host
     ports :
       - "8052:8052"
     depends_on :
@@ -122,6 +137,7 @@ services:
  
   stopwords :
     build : ./StopWords
+    network_mode : host
     ports :
       - "8053:8053"
     depends_on :
@@ -130,6 +146,7 @@ services:
   
   lemmatizer :
     build : ./Lemmatizer
+    network_mode : host
     ports :
       - "8054:8054"
     depends_on :
@@ -138,6 +155,7 @@ services:
   
   intentsearch:
     build : ./IntentSearchService
+    network_mode : host
     ports :
       - "8055:8055"
     depends_on :
@@ -147,6 +165,7 @@ services:
 
   stomp:
     build : ./stomp
+    network_mode : host
     ports :
       - "8088:8088"
     depends_on :
