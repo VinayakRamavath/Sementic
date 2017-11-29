@@ -40,7 +40,7 @@ export class DisplayService{
 
     getparser():Promise<void>{
         console.log("isnide get")
-        return this.http.get('http://13.126.183.132:8096//v1.0/semantic/neo4jintentservice/getterms',{headers: this.headers})
+        return this.http.get('http://13.126.183.132:5000//v1.0/semantic/neo4jintentservice/getterms',{headers: this.headers})
         .toPromise()
         .then((res)=>res.text(),
               (err)=>err.json())
@@ -48,7 +48,7 @@ export class DisplayService{
     
     getindexer():Promise<void>{
         console.log("inside get")
-        return this.http.get('http://13.126.183.132:8096//v1.0/semantic/neo4jintentservice/graphterms',{headers: this.headers})
+        return this.http.get('http://13.126.183.132:5000//v1.0/semantic/neo4jintentservice/graphterms',{headers: this.headers})
         .toPromise()
         .then((res)=>res.text(),
               (err)=>err.json())
@@ -56,7 +56,7 @@ export class DisplayService{
 
     postintentdomain() {
         console.log("inside post");
-         return this.http.post('http://13.126.183.132:8096/v1.0/semantic/neo4jintentservice/postcsvindicator?csvname=aditya',JSON.stringify({}),{headers: this.headers})
+         return this.http.post('http://13.126.183.132:5000/v1.0/semantic/neo4jintentservice/postcsvindicator?csvname=aditya',JSON.stringify({}),{headers: this.headers})
                         .toPromise()
                         .then((res)=>res.text(),
                         

@@ -111,7 +111,7 @@ services:
     build : ./neo4j-intent
     network_mode : host
     ports :
-      - "8096:8096"
+      - "5000:8096"
     depends_on :
       - graph
       - kafka
